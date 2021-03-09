@@ -1,0 +1,195 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %} " />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+	<!--===============================================================================================-->
+	<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet"
+		type="text/css" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<style>
+		#ourHeading {
+			text-align: center;
+			font-family: 'Hoefler Text', Georgia, 'Times New Roman', serif;
+			letter-spacing: 5px;
+			line-height: 1.5em;
+			text-transform: uppercase;
+		}
+
+		#container {
+			background: #e9faff;
+		}
+
+		#formid {
+			padding-top: 150px;
+			margin-left: 500px;
+			margin-right: 500px;
+		}
+
+		#personal {
+			margin-top: 0px;
+			margin-left: 200px;
+
+		}
+
+		#formTitle {
+			margin-bottom: 20px;
+		}
+
+		select {
+			height: 60px;
+			border-radius: 4px;
+			background: #eee;
+			border: none;
+			outline: none;
+			display: inline-block;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+		
+	</style>
+
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div style="clear:right;">
+			<h4 id="ourHeading" style="width:50px;float:left;margin-left:50px;margin-top:15px;">forest approximation
+			</h4>
+		</div>
+		<div style="width:100px;float:right;margin-right:30px;" class="container-login100-form-btn m-t-20">
+			<a href="/login">
+				Logout
+			</a>
+		</div>
+
+		<form id="formid" method="POST" action="/postearthengine">
+			{% csrf_token %}
+			<span class="login100-form-title p-b-33">
+				Global Forest Changes
+			</span>
+
+			<!--<p>Date<span>*</span></p>-->
+			<input type="date" class="form-control input-sm " id="StartDate" name="date1"
+				min="2000-01-01" max="2000-13-13" required />
+
+			<br/>
+			<!--<p>Date<span>*</span></p>-->
+			<input type="date" class="form-control input-sm " id="EndDate" name="date2"
+				min="2000-01-01" max="2000-13-13" required />
+			<br />
+			<div class="wrap-input100 validate-input">
+				<input class="input100" type="text" name="longitude" placeholder="Enter longitude" required>
+				<span class="focus-input100-1"></span>
+				<span class="focus-input100-2"></span>
+			</div>
+			<div class="wrap-input100 validate-input">
+				<input class="input100" type="text" name="latitude" placeholder="Enter latitude" required>
+				<span class="focus-input100-1"></span>
+				<span class="focus-input100-2"></span>
+			</div><br>
+
+			<br>
+			<div class="btn-div">
+				<button class="login100-form-btn" id="Analyze" Onclick="validate_date()" name="submit" value="Analyze">
+					Analyze the changes
+				</button>
+			</div>
+			<br/>
+			<div class="btn-div">
+				<button class="login100-form-btn" id="Visulize" Onclick="validate_date()" name="submit" value="Visulize">
+					Visulize the changes
+				</button>
+			</div>
+			<br><br><br>
+		</form>
+
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+		<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'js/main.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+			type="text/javascript"></script>
+		<script>
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth() + 1; //January is 0!
+			var yyyy = today.getFullYear();
+			if (dd < 10) {
+				dd = "0" + dd;
+			}
+			if (mm < 10) {
+				mm = "0" + mm;
+			}
+			
+			today = yyyy + "-" + mm + "-" + dd;
+			document.getElementById("EndDate").setAttribute("max", today);
+			document.getElementById("StartDate").setAttribute("max", today);
+
+			function validate_date() {
+				const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+				var startDate = document.getElementById("StartDate").value;
+				var endDate = document.getElementById("EndDate").value;
+				console.log(startDate);
+				const diffDays = Math.round(
+					Math.abs((Date.parse(startDate) - Date.parse(endDate)) / oneDay)
+				);
+				//var difference_In_Days = difference_In_Time / (1000 * 3600 * 24);
+				if (diffDays < 15) {
+                    alert("15 days");
+                    document.getElementById("EndDate").value = "";
+                    document.getElementById("StartDate").value = "";
+                } 
+                if (Date.parse(startDate) > Date.parse(endDate)) {
+                    alert("End date should be greater than Start date");
+                    document.getElementById("EndDate").value = "";
+                    document.getElementById("StartDate").value = "";
+ 
+                }
+			}
+		</script>
+
+</body>
+
+</html>

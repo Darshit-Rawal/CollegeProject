@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Database</title>
+  </head>
+  <body>
+      
+				<form  class="login100-form validate-form" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+						<input type="file" name="file" placeholder="file">
+						
+
+						<button type="submit">
+							upload
+						</button>
+				</form> 
+        {% if url %}
+        <p>Uploaded imagepath: <a href="{{ url }}">{{ url}}</a></p>
+        {% endif %}
+         </body>
+</html>

@@ -1,0 +1,185 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Forest Fire</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %} "/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<style>
+		#personal{
+			margin-top:0px;
+			margin-left:200px;
+
+		}
+		#ourHeading{
+			text-align:center;
+			font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+				letter-spacing: 5px;
+					line-height: 1.5em;
+					
+	text-transform: uppercase;
+		}
+		#formTitle{
+			margin-bottom:20px;
+		}
+
+		select {
+			height:60px;
+        	border-radius: 4px;
+        	background: #eee;
+        	border: none;
+        	outline: none;
+        	display: inline-block;
+        	-webkit-appearance: none;
+        	-moz-appearance: none;
+        	appearance: none;
+      }
+	</style>
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	
+
+	<div class="limiter">
+	
+		<div   class="container-login100">
+		<h1 id="ourHeading">Forest Fire</h1>
+			<div id="personal" class="wrap-login100 p-l-55 p-r-55 p-t-25 p-b-25">
+			
+				<form class="login100-form validate-form" method="POST" action="/postforestfire">
+				{% csrf_token %}
+					<span id="formTitle" class="login100-form-title">
+						Predict The Burnt Area
+					</span>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="text" name="x" placeholder="Enter X">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="text" name="y" placeholder="Enter Y">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="text" name="month" placeholder="Enter month" maxlength = "3" minlength = "3">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="text" name="day" placeholder="Enter Day" maxlength = "3" minlength = "3">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" step="0.01" name="FFMC" placeholder="Enter FFMC">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" step="0.01" name="DMC" placeholder="Enter DMC">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" step="0.01" name="DC" placeholder="Enter DC">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" step="0.01" name="ISI" placeholder="Enter ISI">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" step="0.01" name="temp" placeholder="Enter Temparature">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" name="RH" placeholder="Enter RH">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" step="0.01" name="wind" placeholder="Enter wind">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" required>
+						<input class="input100" type="number" step="0.01" name="rain" placeholder="Enter Rain">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn">
+							Predict						
+						</button>
+					</div>
+					{% comment %} {% if  messages %}
+					{% for result in messages %}
+					<h1>{{ result }}</h1>
+					{% endfor %}
+					{% endif %} {% endcomment %}
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

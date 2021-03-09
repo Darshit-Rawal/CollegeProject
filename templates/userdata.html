@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Database</title>
+  </head>
+  <body>
+      {% for user in users %}  
+        <p>{{user.id}} {{user.name}} {{user.password}} {{user.email}} {{user.userType}} {{user.organizationName}}</p>
+      {% endfor %}
+  </body>
+</html>

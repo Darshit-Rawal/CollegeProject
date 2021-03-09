@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Database</title>
+  </head>
+  <body>
+    <center>
+      <h4>Original Image(Image 1)</h4>
+      <img src="{{ url.original }}" width="500px" height="400px" />
+      <br />
+      <h4>Modified Image(Image 2)</h4>
+      <img src="{{ url.modified }}" width="500px" height="400px" />
+      <br />
+      <h4>Difference</h4>
+      <img src="{{ url.difference }}" width="500px" height="400px" />
+      <br />
+      <h4>Figure</h4>
+      <img
+        src="data:image/png;base64,{{ url.figure }}"
+        alt=""
+        height="350px"
+        width="600px"
+      />
+
+      {% comment %} <img src="{{ chart.original }}" />
+      <img src="{{ chart.modified}}" />
+      <img src="{{ chart.difference }}" />
+      <img src="{{ chart.maskA }}" />
+      <img src="{{ chart.maskB }}" /> {% endcomment %}
+    </center>
+  </body>
+</html>

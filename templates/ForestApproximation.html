@@ -1,0 +1,156 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Forest Approximation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %} " />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
+    <style>
+        #ourHeading {
+            text-align: center;
+            font-family: 'Hoefler Text', Georgia, 'Times New Roman', serif;
+            letter-spacing: 5px;
+            line-height: 1.5em;
+            text-transform: uppercase;
+        }
+
+        #container {
+            background: #e9faff;
+        }
+
+        #formid {
+            padding-top: 200px;
+            margin-left: 500px;
+            margin-right: 500px;
+        }
+
+        #formid1 {
+            padding-top: 50px;
+            margin-left: 500px;
+            margin-right: 500px;
+        }
+
+        .submit {
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #9C27B0, #E040FB);
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            margin-left: 35%;
+            font-size: 13px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+        }
+
+        
+    </style>
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div style="clear:right;">
+            <h4 id="ourHeading" style="width:50px;float:left;margin-left:50px;margin-top:15px;">forest approximation
+            </h4>
+        </div>
+        <div style="width:100px;float:right;margin-right: 60px;" class="container-login100-form-btn m-t-20">
+            <a class="submit" align="center" href="/login">
+                Logout
+            </a>
+        </div>
+
+        <form id="formid" method="POST" action="/postdashboard" enctype="multipart/form-data">
+            {% csrf_token %}
+            <span class="login100-form-title p-b-33">
+                Global Forest Changes
+            </span>
+
+            
+
+            <div class="validate-input">
+                <input class="input100" type="file" name="file1" placeholder="file1">
+                <span class="focus-input100-1"></span>
+                <span class="focus-input100-2"></span>
+            </div>
+
+            <div class="validate-input">
+                <input class="input100" type="file" name="file2" placeholder="file2">
+                <span class="focus-input100-1"></span>
+                <span class="focus-input100-2"></span>
+            </div>
+
+            <div class="">
+                <button class="login100-form-btn">
+                    Submit
+                </button>
+            </div>
+
+        </form>
+
+        <form id="formid1" method="POST" action="/earthengine" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button class="login100-form-btn">
+                Switch to Google Earth Engine
+            </button>
+        </form>
+
+        <!-- <form id="formid1" method="POST" action="/visulizeForest" >
+            {% csrf_token %}
+            <button class="login100-form-btn">
+                Visulize the Forest
+            </button>
+        </form> -->
+
+
+
+
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+        <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
