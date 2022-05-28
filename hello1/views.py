@@ -13,6 +13,7 @@ import skimage.measure
 import matplotlib.pyplot as plt
 from PIL import Image
 
+
 from hello1.find_green_area import area_find
 from hello1.plot_chart import plot_pie
 
@@ -59,6 +60,10 @@ import base64
 
 # import numpy as np
 # import io
+
+
+# darshitrawal0703@gmail.com
+# Darshit@123
 
 
 # def getimage(request):

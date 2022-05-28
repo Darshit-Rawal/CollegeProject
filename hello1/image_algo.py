@@ -2,12 +2,14 @@ import base64
 import cv2
 import numpy as np
 import skimage.measure
+import skimage.measure as measure
 import matplotlib.pyplot as plt
 from imutils import is_cv2
 from PIL import Image
 from io import BytesIO
 import urllib
 import io
+from skimage import metrics
 
 
 
